@@ -20,6 +20,15 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+      
+
+# 在这里添加自定义源
+      - name: Add custom feeds
+        run: |
+            echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
+            echo 'src-git argon https://github.com/jerrykuku/luci-theme-argon.git' >> feeds.conf.default
+            echo 'src-git ua2f https://github.com/Zxilly/UA2F.git' >> feeds.conf.default
+            cat feeds.conf.default
 
       - name: Hook the openwrt_core URL for opkg
         run: |
