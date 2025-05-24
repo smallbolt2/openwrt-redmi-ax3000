@@ -22,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
       
 
-# 在这里添加自定义源
       - name: Add custom feeds
         run: |
             echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
