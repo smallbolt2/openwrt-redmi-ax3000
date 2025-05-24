@@ -1,8 +1,13 @@
 name: 编译红米路由器AX3000+pptp客户端+wireguard+UA2F和一个主题ARGON
 
 on:
+  repository_dispatch:
   workflow_dispatch:
-  push:
+    inputs:
+      ssh:
+        description: 'SSH 连接至 Actions'
+        required: true
+        default: 'true'
 
 jobs:
   build:
@@ -139,6 +144,12 @@ jobs:
           make defconfig
 
      
+      - name: SSH & Manual LUCI Configuration
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 130
+        with:
+          limit-access-to: ${{ github.actor }}
+        
 
       - name: Download
         run: |
