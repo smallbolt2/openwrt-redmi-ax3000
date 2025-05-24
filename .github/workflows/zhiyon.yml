@@ -139,7 +139,7 @@ jobs:
 
      
       - name: SSH & Manual LUCI Configuration
-        uses: mxschmitt/action-tmate@v4
+        uses: mxschmitt/action-tmate@v3
         timeout-minutes: 130
         with:
           limit-access-to: ${{ github.actor }}
