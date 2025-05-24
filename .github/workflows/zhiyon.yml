@@ -24,7 +24,7 @@ jobs:
 
       - name: Add custom feeds
         run: |
-            echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
+            
             echo 'src-git argon https://github.com/jerrykuku/luci-theme-argon.git' >> feeds.conf.default
             echo 'src-git ua2f https://github.com/Zxilly/UA2F.git' >> feeds.conf.default
             cat feeds.conf.default
@@ -56,6 +56,10 @@ jobs:
             # CONFIG_IB_STANDALONE is not set
             CONFIG_SDK=y
             CONFIG_MAKE_TOOLCHAIN=y
+            CONFIG_PACKAGE_mosdns=y
+
+            CONFIG_PACKAGE_golang=y
+            CONFIG_PACKAGE_golang-src=y
 
             CONFIG_ALL_NONSHARED=y
             CONFIG_REPRODUCIBLE_DEBUG_INFO=y
